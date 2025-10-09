@@ -51,8 +51,7 @@ const Projects = () => {
     <div className="min-h-screen pt-20 px-6 pb-12">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-12">
-          <span className="text-accent font-mono text-sm">$ cd projects && ls</span>
-          <h1 className="text-4xl md:text-5xl font-mono font-bold mt-2 mb-4 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
             Featured <span className="text-accent">Projects</span>
           </h1>
           <div className="h-1 w-20 bg-accent rounded-full"></div>

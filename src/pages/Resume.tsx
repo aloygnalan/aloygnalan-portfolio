@@ -63,10 +63,9 @@ const Resume = () => {
   return (
     <div className="min-h-screen pt-20 px-6 pb-12">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12 flex justify-between items-end">
+        <div className="mb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div>
-            <span className="text-accent font-mono text-sm">$ cat resume.pdf</span>
-            <h1 className="text-4xl md:text-5xl font-mono font-bold mt-2 mb-4 text-foreground">
+            <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
               Resume
             </h1>
             <div className="h-1 w-20 bg-accent rounded-full"></div>

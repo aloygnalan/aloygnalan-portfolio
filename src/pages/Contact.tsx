@@ -52,8 +52,7 @@ const Contact = () => {
     <div className="min-h-screen pt-20 px-6 pb-12">
       <div className="container mx-auto max-w-4xl">
         <div className="mb-12">
-          <span className="text-accent font-mono text-sm">$ echo "Let's connect"</span>
-          <h1 className="text-4xl md:text-5xl font-mono font-bold mt-2 mb-4 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
             Get in <span className="text-accent">Touch</span>
           </h1>
           <div className="h-1 w-20 bg-accent rounded-full"></div>

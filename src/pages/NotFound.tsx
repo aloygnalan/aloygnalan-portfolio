@@ -18,8 +18,8 @@ const NotFound = () => {
         
         <h1 className="mb-4 text-6xl font-mono font-bold text-accent glow-text">404</h1>
         <p className="mb-2 text-2xl font-mono font-semibold text-foreground">Page Not Found</p>
-        <p className="mb-8 text-muted-foreground font-mono">
-          $ error: route "{location.pathname}" does not exist
+        <p className="mb-8 text-muted-foreground">
+          The page you're looking for doesn't exist.
         </p>
         
         <Link

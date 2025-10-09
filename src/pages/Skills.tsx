@@ -53,9 +53,8 @@ const Skills = () => {
     <div className="min-h-screen pt-20 px-6 pb-12">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-12">
-          <span className="text-accent font-mono text-sm">$ ls -la skills/</span>
-          <h1 className="text-4xl md:text-5xl font-mono font-bold mt-2 mb-4 text-foreground">
-            Technical <span className="text-accent">Arsenal</span>
+          <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
+            Technical <span className="text-accent">Skills</span>
           </h1>
           <div className="h-1 w-20 bg-accent rounded-full"></div>
         </div>
