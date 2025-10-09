@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const Home = () => {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Cybersecurity Voyageur";
+  const fullText = "SOC Analyst";
   
   useEffect(() => {
     let index = 0;
@@ -27,9 +27,9 @@ const Home = () => {
         <section className="min-h-[90vh] flex flex-col justify-center items-center text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-mono font-bold mb-6 text-foreground">
-              DIGITAL <span className="text-accent glow-text">ARCHITECT</span>
+              Aloy Gnalan <span className="text-accent glow-text">A</span>
             </h1>
-            <div className="h-12 mb-8">
+            <div className="h-12">
               <p className="text-xl md:text-2xl text-muted-foreground font-mono">
                 {displayText}
                 <span className="animate-pulse text-accent">_</span>
@@ -37,7 +37,7 @@ const Home = () => {
             </div>
           </div>
 
-          <p className="text-foreground/80 max-w-2xl text-lg mb-12 leading-relaxed">
+          <p className="text-foreground/80 max-w-2xl text-lg mb-12 leading-relaxed text-center">
             Guarding networks with intelligence, automation, and strategy. Dedicated to the art of Blue Team defense.
           </p>
 

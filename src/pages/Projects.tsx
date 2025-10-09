@@ -29,7 +29,7 @@ const Projects = () => {
           <div className="h-1 w-20 bg-accent rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-6">
           {projects.map((project, idx) => (
             <CyberCard key={idx}>
               <div className="flex flex-col h-full">
