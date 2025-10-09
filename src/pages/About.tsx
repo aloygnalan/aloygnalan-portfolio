@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import CyberCard from "@/components/CyberCard";
+import CyberCard from "@/components/common/CyberCard";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);

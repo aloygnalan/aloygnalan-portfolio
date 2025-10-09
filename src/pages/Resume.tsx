@@ -1,4 +1,4 @@
-import CyberCard from "@/components/CyberCard";
+import CyberCard from "@/components/common/CyberCard";
 import { Download, Briefcase, GraduationCap } from "lucide-react";
 
 const Resume = () => {

@@ -1,4 +1,4 @@
-import CyberCard from "@/components/CyberCard";
+import CyberCard from "@/components/common/CyberCard";
 import { Code2, Shield, Layers, Database } from "lucide-react";
 
 const Skills = () => {

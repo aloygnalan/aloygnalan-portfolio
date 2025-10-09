@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CyberCard from "@/components/CyberCard";
+import CyberCard from "@/components/common/CyberCard";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
