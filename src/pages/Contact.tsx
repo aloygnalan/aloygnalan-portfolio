@@ -1,0 +1,170 @@
+import { useState } from "react";
+import CyberCard from "@/components/CyberCard";
+import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "Thanks for reaching out. I'll get back to you soon!",
+    });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com",
+      username: "@cybervoyageur",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://linkedin.com",
+      username: "/in/cyber-voyageur",
+    },
+    {
+      name: "Email",
+      icon: Mail,
+      url: "mailto:cyber@voyageur.dev",
+      username: "cyber@voyageur.dev",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen pt-20 px-6 pb-12">
+      <div className="container mx-auto max-w-4xl">
+        <div className="mb-12">
+          <span className="text-accent font-mono text-sm">$ echo "Let's connect"</span>
+          <h1 className="text-4xl md:text-5xl font-mono font-bold mt-2 mb-4 text-foreground">
+            Get in <span className="text-accent">Touch</span>
+          </h1>
+          <div className="h-1 w-20 bg-accent rounded-full"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <CyberCard>
+              <h2 className="text-2xl font-mono font-bold mb-6 text-foreground">
+                Send a Message
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-mono mb-2 text-foreground">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-mono mb-2 text-foreground">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-mono mb-2 text-foreground">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono resize-none"
+                    placeholder="Your message here..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 bg-accent text-accent-foreground font-mono font-semibold rounded-lg transition-smooth hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] flex items-center justify-center gap-2 group"
+                >
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Send Message
+                </button>
+              </form>
+            </CyberCard>
+          </div>
+
+          <div className="space-y-6">
+            <CyberCard>
+              <h2 className="text-2xl font-mono font-bold mb-6 text-foreground">
+                Connect With Me
+              </h2>
+              <div className="space-y-4">
+                {socialLinks.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-background border border-border rounded-lg transition-smooth hover:border-accent hover:shadow-[0_0_15px_rgba(0,255,204,0.2)] group"
+                  >
+                    <div className="p-3 bg-accent/10 rounded-lg border border-accent/30 group-hover:bg-accent/20 transition-smooth">
+                      <link.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-mono font-semibold text-foreground">{link.name}</p>
+                      <p className="text-sm text-muted-foreground font-mono">{link.username}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </CyberCard>
+
+            <CyberCard>
+              <h3 className="text-lg font-mono font-bold mb-3 text-foreground">
+                Response Time
+              </h3>
+              <p className="text-foreground/80 text-sm">
+                I typically respond within <span className="text-accent font-semibold">24-48 hours</span>.
+                For urgent matters, please reach out via email with "URGENT" in the subject line.
+              </p>
+            </CyberCard>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
