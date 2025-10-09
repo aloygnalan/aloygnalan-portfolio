@@ -38,8 +38,7 @@ const Home = () => {
           </div>
 
           <p className="text-foreground/80 max-w-2xl text-lg mb-12 leading-relaxed">
-            Building secure digital experiences at the intersection of code and creativity.
-            Specializing in full-stack development and cybersecurity solutions.
+            Guarding networks with intelligence, automation, and strategy. Dedicated to the art of Blue Team defense.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

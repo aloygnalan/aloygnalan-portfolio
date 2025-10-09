@@ -4,46 +4,18 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "SecureAuth Platform",
-      description: "A multi-factor authentication system with biometric integration and real-time threat detection.",
-      tags: ["React", "Node.js", "PostgreSQL", "WebAuthn"],
-      github: "#",
-      demo: "#",
+      title: "Data Security in Cloud using Blockchain and Biometrics",
+      description: "A next-generation security solution combining biometric authentication with ChaCha20Poly1305 encryption, blockchain verification, and enterprise-level protection features.",
+      tags: ["Python", "MongoDB", "ChaCha20Poly1305", "Blockchain", "WebAuth"],
+      github: "https://github.com/aloygnalan",
+      demo: "",
     },
     {
-      title: "Vulnerability Scanner",
-      description: "Automated security scanning tool for web applications with custom rule engine and detailed reporting.",
-      tags: ["Python", "FastAPI", "Redis", "Docker"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Encrypted Chat Application",
-      description: "End-to-end encrypted messaging platform with perfect forward secrecy and zero-knowledge architecture.",
-      tags: ["TypeScript", "WebRTC", "WebSocket", "Crypto"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Network Traffic Analyzer",
-      description: "Real-time network packet analysis tool with anomaly detection and visualization dashboard.",
-      tags: ["Python", "Scapy", "ML", "React"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "API Security Gateway",
-      description: "Rate limiting, authentication, and threat protection layer for microservices architecture.",
-      tags: ["Go", "Redis", "Docker", "Kubernetes"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Password Manager",
-      description: "Zero-knowledge password vault with client-side encryption and secure password generation.",
-      tags: ["React", "Rust", "Tauri", "SQLite"],
-      github: "#",
-      demo: "#",
+      title: "DoS Attack Detection & SMS Alerting System",
+      description: "A sophisticated cybersecurity monitoring tool providing real-time network traffic analysis with automated threat detection and instant SMS notifications via Twilio API for immediate incident response.",
+      tags: ["Python", "Scapy", "Twilio API", "Real-time Monitoring", "IDS"],
+      github: "https://github.com/aloygnalan",
+      demo: "",
     },
   ];
 
@@ -86,18 +58,24 @@ const Projects = () => {
                 <div className="flex gap-3 mt-4 pt-4 border-t border-border">
                   <a
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-mono text-foreground hover:text-accent transition-smooth group"
                   >
                     <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
                     Code
                   </a>
-                  <a
-                    href={project.demo}
-                    className="flex items-center gap-2 text-sm font-mono text-foreground hover:text-accent transition-smooth group"
-                  >
-                    <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                    Demo
-                  </a>
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-mono text-foreground hover:text-accent transition-smooth group"
+                    >
+                      <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                      Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </CyberCard>

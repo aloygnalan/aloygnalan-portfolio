@@ -31,20 +31,20 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com",
-      username: "@cybervoyageur",
+      url: "https://github.com/aloygnalan",
+      username: "github.com/aloygnalan",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com",
-      username: "/in/cyber-voyageur",
+      url: "https://linkedin.com/in/aloy-gnalan",
+      username: "linkedin.com/in/aloy-gnalan",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:cyber@voyageur.dev",
-      username: "cyber@voyageur.dev",
+      url: "mailto:gnalanaloy2@gmail.com",
+      username: "gnalanaloy2@gmail.com",
     },
   ];
 

@@ -18,7 +18,7 @@ const Navbar = () => {
           <NavLink to="/" className="flex items-center gap-2 group">
             <Terminal className="w-6 h-6 text-accent transition-smooth group-hover:text-primary" />
             <span className="font-mono font-bold text-lg text-foreground group-hover:text-accent transition-smooth">
-              CYBER_CHRONICLE
+              Cyber Horizon
             </span>
           </NavLink>
 

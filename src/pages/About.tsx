@@ -40,74 +40,64 @@ const About = () => {
             }`}
           >
             <p className="text-lg leading-relaxed">
-              Hello! I'm a <span className="text-accent font-semibold">cybersecurity enthusiast</span> and 
-              <span className="text-accent font-semibold"> full-stack developer</span> passionate about building 
-              secure, efficient, and elegant digital solutions.
+              I'm a <span className="text-accent font-semibold">cybersecurity enthusiast</span> focused on 
+              <span className="text-accent font-semibold"> Blue Team operations</span>, with interests in 
+              <span className="text-accent"> security monitoring</span>, 
+              <span className="text-accent"> incident response</span>, 
+              <span className="text-accent"> threat hunting</span>, and 
+              <span className="text-accent"> digital forensics</span>.
             </p>
             
             <p className="text-lg leading-relaxed">
-              My journey in tech began with a fascination for how things work under the hood. 
-              This curiosity led me to explore the realms of <span className="text-accent">penetration testing</span>, 
-              <span className="text-accent"> secure coding practices</span>, and 
-              <span className="text-accent"> system architecture</span>.
-            </p>
-
-            <p className="text-lg leading-relaxed">
-              I believe in the power of clean code, elegant design, and robust security. 
-              Whether I'm crafting a user interface or analyzing network vulnerabilities, 
-              I approach every challenge with the same principle: 
-              <span className="text-accent font-semibold"> build it right, build it secure</span>.
-            </p>
-
-            <p className="text-lg leading-relaxed">
-              When I'm not coding or breaking things (ethically, of course), you'll find me 
-              exploring new technologies, contributing to open-source projects, or diving deep 
-              into cybersecurity research.
+              I enjoy learning how attacks happen and applying defensive techniques to detect, prevent, 
+              and respond to threats. Through <span className="text-accent">CTFs</span>, 
+              <span className="text-accent"> labs</span>, and 
+              <span className="text-accent"> continuous research</span>, I'm building practical skills 
+              to grow into a professional who can effectively safeguard systems and networks.
             </p>
           </div>
         </CyberCard>
 
         <div className="grid md:grid-cols-2 gap-6">
           <CyberCard>
-            <h3 className="text-xl font-mono font-bold mb-4 text-accent">What I Do</h3>
-            <ul className="space-y-3 text-foreground/80">
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-1">▹</span>
-                <span>Full-stack web development</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-1">▹</span>
-                <span>Security audits & penetration testing</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-1">▹</span>
-                <span>Building secure APIs and backends</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-1">▹</span>
-                <span>UI/UX design with modern frameworks</span>
-              </li>
-            </ul>
+            <h3 className="text-xl font-mono font-bold mb-4 text-accent">Education</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-foreground">SRM Valliammai Engineering College</h4>
+                <p className="text-sm text-accent">B.E. Cybersecurity – CGPA: 8.1</p>
+                <p className="text-sm text-muted-foreground">2022 – 2026</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">St. Xavier's Higher Secondary School</h4>
+                <p className="text-sm text-accent">HSC – 78%</p>
+                <p className="text-sm text-muted-foreground">2022</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">Kein Matric. Higher Secondary School</h4>
+                <p className="text-sm text-accent">SSLC – 65.6%</p>
+                <p className="text-sm text-muted-foreground">2020</p>
+              </div>
+            </div>
           </CyberCard>
 
           <CyberCard>
-            <h3 className="text-xl font-mono font-bold mb-4 text-accent">Interests</h3>
+            <h3 className="text-xl font-mono font-bold mb-4 text-accent">Areas of Interest</h3>
             <ul className="space-y-3 text-foreground/80">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
-                <span>Ethical hacking & CTF challenges</span>
+                <span>SOC Analysis</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
-                <span>Open-source contributions</span>
+                <span>Security Monitoring & SIEM</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
-                <span>Emerging tech & AI security</span>
+                <span>Incident Detection & Response</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
-                <span>Digital privacy advocacy</span>
+                <span>Threat Hunting</span>
               </li>
             </ul>
           </CyberCard>

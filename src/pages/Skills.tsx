@@ -4,47 +4,37 @@ import { Code2, Shield, Layers, Database } from "lucide-react";
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
-      icon: Code2,
-      skills: [
-        { name: "JavaScript/TypeScript", level: 90 },
-        { name: "Python", level: 85 },
-        { name: "Java", level: 75 },
-        { name: "Go", level: 70 },
-        { name: "Rust", level: 65 },
-      ],
-    },
-    {
-      title: "Frameworks & Libraries",
-      icon: Layers,
-      skills: [
-        { name: "React & Next.js", level: 90 },
-        { name: "Node.js & Express", level: 85 },
-        { name: "TailwindCSS", level: 95 },
-        { name: "FastAPI", level: 80 },
-        { name: "Django", level: 75 },
-      ],
-    },
-    {
-      title: "Cybersecurity Tools",
+      title: "Blue Team & SOC",
       icon: Shield,
       skills: [
-        { name: "Burp Suite", level: 85 },
-        { name: "Metasploit", level: 80 },
-        { name: "Wireshark", level: 85 },
-        { name: "Nmap", level: 90 },
-        { name: "OWASP ZAP", level: 80 },
+        { name: "SOC Analysis", level: 85 },
+        { name: "Security Monitoring & SIEM", level: 80 },
+        { name: "Incident Detection & Response", level: 85 },
       ],
     },
     {
-      title: "Databases & DevOps",
+      title: "Security & Pentesting",
+      icon: Code2,
+      skills: [
+        { name: "Vulnerability Assessment", level: 80 },
+        { name: "Network Security", level: 85 },
+        { name: "Basic Penetration Testing", level: 75 },
+      ],
+    },
+    {
+      title: "Development & Tools",
+      icon: Layers,
+      skills: [
+        { name: "Python", level: 85 },
+        { name: "HTML", level: 80 },
+        { name: "CSS", level: 75 },
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
       icon: Database,
       skills: [
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 80 },
-        { name: "Docker", level: 85 },
-        { name: "Kubernetes", level: 70 },
-        { name: "Git & CI/CD", level: 90 },
+        { name: "Git", level: 80 },
       ],
     },
   ];
@@ -91,35 +81,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Additional Skills */}
-        <CyberCard className="mt-8">
-          <h3 className="text-xl font-mono font-bold mb-4 text-accent">
-            Additional Competencies
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {[
-              "REST APIs",
-              "GraphQL",
-              "WebSockets",
-              "OAuth 2.0",
-              "JWT",
-              "SSL/TLS",
-              "Linux Administration",
-              "Bash Scripting",
-              "Vulnerability Assessment",
-              "Network Security",
-              "Application Security",
-              "Cloud Security (AWS/Azure)",
-            ].map((skill, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 bg-card border border-accent/30 rounded-lg text-foreground font-mono text-sm transition-smooth hover:border-accent hover:shadow-[0_0_15px_rgba(0,255,204,0.2)]"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </CyberCard>
       </div>
     </div>
   );
