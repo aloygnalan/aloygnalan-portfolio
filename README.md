@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Cyber Chronicle Portfolio
 
-## Project info
+A modern, cyberpunk-inspired portfolio showcasing my journey in cybersecurity and digital expertise.
 
-**URL**: https://lovable.dev/projects/838e0ed9-44b2-484f-b498-4a772d059412
+## Overview
 
-## How can I edit this code?
+This portfolio is designed with a cyberpunk aesthetic, featuring:
 
-There are several ways of editing your application.
+- Interactive UI elements with cyber-themed animations
+- Comprehensive display of cybersecurity skills and projects
+- Detailed breakdown of technical expertise
+- Modern, responsive design
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/838e0ed9-44b2-484f-b498-4a772d059412) and start prompting.
+This project is built with modern web technologies:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend Framework**: React + Vite
+- **Type Safety**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Icons**: Lucide Icons
+- **Animations**: Custom CSS transitions
 
-**Use your preferred IDE**
+## Development Setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To get started with development:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```bash
+git clone https://github.com/aloygnalan/aloygnalan-portfolio.git
+cd cyber-chronicle-portfolio
+```
 
-Follow these steps:
+2. Install dependencies:
+```bash
+npm install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **About Section**: Personal introduction and professional background
+- **Skills Dashboard**: Visual representation of technical competencies
+- **Project Showcase**: Highlighting key cybersecurity projects
+- **Resume**: Downloadable CV and professional experience
+- **Contact**: Professional contact information
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is deployed using Firebase Hosting. To deploy:
 
-## What technologies are used for this project?
+1. Install Firebase Tools:
+```bash
+npm install -g firebase-tools
+```
 
-This project is built with:
+2. Login to Firebase:
+```bash
+firebase login
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. Initialize Firebase:
+```bash
+firebase init
+```
 
-## How can I deploy this project?
+4. Build the project:
+```bash
+npm run build
+```
 
-Simply open [Lovable](https://lovable.dev/projects/838e0ed9-44b2-484f-b498-4a772d059412) and click on Share -> Publish.
+5. Deploy:
+```bash
+firebase deploy
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Contact
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Aloy Gnalan
+- Email: aloygnalan@gmail.com
+- LinkedIn: [Aloy Gnalan](https://www.linkedin.com/in/aloy-gnalan)
