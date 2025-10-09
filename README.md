@@ -81,5 +81,5 @@ firebase deploy
 ## Contact
 
 Aloy Gnalan
-- Email: aloygnalan@gmail.com
+- Email: gnalanaloy2@gmail.com
 - LinkedIn: [Aloy Gnalan](https://www.linkedin.com/in/aloy-gnalan)
