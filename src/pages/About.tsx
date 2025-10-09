@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import CyberCard from "@/components/common/CyberCard";
+import { Code2, Shield, Layers, Database } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,6 +24,43 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  const skillCategories = [
+    {
+      title: "Blue Team & SOC",
+      icon: Shield,
+      skills: [
+        { name: "SOC Analysis", level: 85 },
+        { name: "Security Monitoring & SIEM", level: 80 },
+        { name: "Incident Detection & Response", level: 85 },
+      ],
+    },
+    {
+      title: "Security & Pentesting",
+      icon: Code2,
+      skills: [
+        { name: "Vulnerability Assessment", level: 80 },
+        { name: "Network Security", level: 85 },
+        { name: "Basic Penetration Testing", level: 75 },
+      ],
+    },
+    {
+      title: "Development & Tools",
+      icon: Layers,
+      skills: [
+        { name: "Python", level: 85 },
+        { name: "HTML", level: 80 },
+        { name: "CSS", level: 75 },
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
+      icon: Database,
+      skills: [
+        { name: "Git", level: 80 },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen pt-20 px-6 pb-12">
       <div className="container mx-auto max-w-4xl">
@@ -35,16 +73,17 @@ const About = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-8 items-center">
           <div className="md:col-span-1 flex justify-center">
-            <CyberCard className="p-2">
+            <div className="relative group">
               <img
                 ref={imageRef}
                 src="/gnalan.jpg"
                 alt="Gnalan"
-                className={`w-48 h-48 rounded-full object-cover transition-all duration-1000 ${
+                className={`w-56 h-56 rounded-full object-cover border-4 border-accent transition-all duration-1000 ${
                   isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
                 }`}
               />
-            </CyberCard>
+              <div className="absolute inset-0 rounded-full border-4 border-accent animate-pulse-slow group-hover:animate-none"></div>
+            </div>
           </div>
 
           <div className="md:col-span-2">
@@ -105,6 +144,47 @@ const About = () => {
             </li>
           </ul>
         </CyberCard>
+        
+        <div className="mt-12">
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
+              Technical <span className="text-accent">Skills</span>
+            </h1>
+            <div className="h-1 w-20 bg-accent rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {skillCategories.map((category, idx) => (
+              <CyberCard key={idx}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-accent/10 rounded-lg border border-accent/30">
+                    <category.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h2 className="text-xl font-mono font-bold text-foreground">
+                    {category.title}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIdx) => (
+                    <div key={skillIdx}>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-foreground font-medium">{skill.name}</span>
+                        <span className="text-accent font-mono text-sm">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-accent to-accent/70 transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CyberCard>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
