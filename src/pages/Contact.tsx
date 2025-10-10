@@ -7,39 +7,27 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const encode = (data: { [key: string]: string }) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
     
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          name: formData.get("name") as string,
-          email: formData.get("email") as string,
-          message: formData.get("message") as string,
-        }),
+        body: new URLSearchParams(new FormData(form) as any).toString(),
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
       
-      setIsSubmitted(true);
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon!",
-      });
-      form.reset();
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Message sent!",
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       toast({
@@ -112,10 +100,7 @@ const Contact = () => {
                 <form 
                   onSubmit={handleSubmit} 
                   name="contact" 
-                  method="POST" 
                   data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  action="/contact/?success=true"
                   className="space-y-4"
                 >
                   <input type="hidden" name="form-name" value="contact" />
