@@ -22,3 +22,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build files from different platforms
+.vercel
+.netlify
+build/
+out/
