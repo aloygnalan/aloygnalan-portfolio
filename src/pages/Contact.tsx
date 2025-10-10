@@ -7,27 +7,18 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const encode = (data: Record<string, string>) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     const myForm = e.target as HTMLFormElement;
     const formData = new FormData(myForm);
-    const formEntries = Object.fromEntries(formData.entries());
 
     try {
+      const formEntries = Object.fromEntries(formData.entries());
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...formEntries as Record<string, string>
-        }),
+        body: new URLSearchParams(formEntries as Record<string, string>).toString(),
       });
 
       if (!response.ok) {
@@ -72,16 +63,16 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-12">
+    <div className="min-h-screen pt-16 md:pt-20 px-4 md:px-6 pb-8 md:pb-12">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-mono font-bold mb-4 text-foreground">
+        <div className="mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-5xl font-mono font-bold mb-3 md:mb-4 text-foreground">
             Get in <span className="text-accent">Touch</span>
           </h1>
-          <div className="h-1 w-20 bg-accent rounded-full"></div>
+          <div className="h-1 w-16 md:w-20 bg-accent rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
           <div>
             <CyberCard>
               <h2 className="text-2xl font-mono font-bold mb-6 text-foreground">
@@ -113,7 +104,6 @@ const Contact = () => {
                   onSubmit={handleSubmit}
                   name="contact"
                   method="post"
-                  action="/contact"
                   data-netlify="true"
                   className="space-y-4"
                 >
