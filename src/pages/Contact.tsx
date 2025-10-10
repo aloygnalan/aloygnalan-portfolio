@@ -7,32 +7,38 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
     
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => {
-        setIsSubmitted(true);
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon!",
-        });
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        toast({
-          title: "Error",
-          description: "Something went wrong. Please try again.",
-          variant: "destructive",
-        });
+    const myForm = e.target as HTMLFormElement;
+    const formData = new FormData(myForm);
+
+    try {
+      const formEntries = Object.fromEntries(formData.entries());
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formEntries as Record<string, string>).toString(),
       });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      myForm.reset();
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const socialLinks = [
@@ -95,19 +101,13 @@ const Contact = () => {
                 </div>
               ) : (
                 <form 
-                  onSubmit={handleSubmit} 
-                  name="contact" 
-                  method="POST"
+                  onSubmit={handleSubmit}
+                  name="contact"
+                  method="post"
                   data-netlify="true"
-                  netlify-honeypot="bot-field"
                   className="space-y-4"
                 >
                   <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
-                    <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </p>
                 <div>
                   <label htmlFor="name" className="block text-sm font-mono mb-2 text-foreground">
                     Name
