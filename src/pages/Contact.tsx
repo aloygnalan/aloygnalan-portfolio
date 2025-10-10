@@ -1,31 +1,7 @@
-import { useState } from "react";
 import CyberCard from "@/components/common/CyberCard";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const socialLinks = [
     {
@@ -64,7 +40,8 @@ const Contact = () => {
               <h2 className="text-2xl font-mono font-bold mb-6 text-foreground">
                 Send a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
+                            <form name="contact" data-netlify="true" method="POST" className="space-y-4">
+                <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-mono mb-2 text-foreground">
                     Name
@@ -73,8 +50,7 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+
                     required
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono"
                     placeholder="John Doe"
@@ -89,8 +65,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+
                     required
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono"
                     placeholder="john@example.com"
@@ -104,8 +79,7 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+
                     required
                     rows={5}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-smooth text-foreground font-mono resize-none"
