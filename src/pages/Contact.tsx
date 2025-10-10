@@ -7,18 +7,27 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     const myForm = e.target as HTMLFormElement;
     const formData = new FormData(myForm);
+    const formEntries = Object.fromEntries(formData.entries());
 
     try {
-      const formEntries = Object.fromEntries(formData.entries());
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formEntries as Record<string, string>).toString(),
+        body: encode({
+          "form-name": "contact",
+          ...formEntries as Record<string, string>
+        }),
       });
 
       if (!response.ok) {
@@ -104,6 +113,7 @@ const Contact = () => {
                   onSubmit={handleSubmit}
                   name="contact"
                   method="post"
+                  action="/contact"
                   data-netlify="true"
                   className="space-y-4"
                 >

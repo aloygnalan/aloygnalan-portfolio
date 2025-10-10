@@ -14,3 +14,7 @@
 [dev]
   framework = "vite"
   targetPort = 5173
+
+[forms]
+  [forms.contact]
+    name = "contact"
