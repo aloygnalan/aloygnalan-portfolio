@@ -40,7 +40,14 @@ const Contact = () => {
               <h2 className="text-2xl font-mono font-bold mb-6 text-foreground">
                 Send a Message
               </h2>
-                            <form name="contact" data-netlify="true" method="POST" className="space-y-4">
+              {/* Hidden form for Netlify form detection */}
+              <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <textarea name="message"></textarea>
+              </form>
+              {/* Actual form */}
+              <form name="contact" method="POST" data-netlify="true" className="space-y-4">
                 <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-mono mb-2 text-foreground">
