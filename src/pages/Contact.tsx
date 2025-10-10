@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CyberCard from "@/components/common/CyberCard";
-import { Mail, Github, Linkedin, Send, CheckCircle } from "lucide-react";
+import { Mail, Github, Linkedin, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -11,27 +11,15 @@ const Contact = () => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     
-    const data = new FormData(form);
-    fetch("/", {
-      method: "POST",
-      body: data,
-    })
-      .then(() => {
-        setIsSubmitted(true);
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon!",
-        });
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        toast({
-          title: "Error",
-          description: "Something went wrong. Please try again.",
-          variant: "destructive",
-        });
-      });
+    // Let the form submit naturally - this is what Netlify expects
+    form.submit();
+    
+    // Show success message
+    setIsSubmitted(true);
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. I'll get back to you soon!",
+    });
   };
 
   const socialLinks = [
