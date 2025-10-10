@@ -1,7 +1,38 @@
+import { useState } from "react";
 import CyberCard from "@/components/common/CyberCard";
-import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Send, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    
+    try {
+      const formData = new FormData(form);
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
 
   const socialLinks = [
     {
@@ -47,8 +78,23 @@ const Contact = () => {
                 <textarea name="message"></textarea>
               </form>
               {/* Actual form */}
-              <form name="contact" method="POST" data-netlify="true" className="space-y-4">
-                <input type="hidden" name="form-name" value="contact" />
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center py-8 space-y-4 text-center">
+                  <CheckCircle className="w-16 h-16 text-green-500" />
+                  <h3 className="text-xl font-mono font-bold text-foreground">Message Sent!</h3>
+                  <p className="text-muted-foreground">
+                    Thanks for reaching out. I'll get back to you soon!
+                  </p>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="px-6 py-2 bg-accent text-accent-foreground font-mono rounded-lg transition-smooth hover:shadow-[0_0_25px_rgba(0,255,204,0.4)]"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" className="space-y-4">
+                  <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-mono mb-2 text-foreground">
                     Name
@@ -102,6 +148,7 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
+              )}
             </CyberCard>
           </div>
 
