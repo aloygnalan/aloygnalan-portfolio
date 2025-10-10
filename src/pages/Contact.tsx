@@ -10,12 +10,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
     
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form) as any).toString(),
+      const formEntries = Object.fromEntries(formData) as Record<string, string>;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formEntries).toString()
       });
       
       if (response.ok) {
@@ -26,6 +28,7 @@ const Contact = () => {
         });
         form.reset();
       } else {
+        console.error('Form submission failed:', response.status, response.statusText);
         throw new Error('Form submission failed');
       }
     } catch (error) {
@@ -100,6 +103,7 @@ const Contact = () => {
                 <form 
                   onSubmit={handleSubmit} 
                   name="contact" 
+                  method="POST"
                   data-netlify="true"
                   className="space-y-4"
                 >
