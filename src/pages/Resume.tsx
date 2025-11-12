@@ -171,4 +171,4 @@ const Resume = () => {
     </div>
   );
 };
-export default Projects;
+export default Resume;

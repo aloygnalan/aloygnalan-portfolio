@@ -1,10 +1,12 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface CyberCardProps {
   children: ReactNode;
   className?: string;
   hover?: boolean;
+  // Allow React `key` when used in lists — TypeScript checks JSX props against this
+  key?: React.Key;
 }
 
 const CyberCard = ({ children, className, hover = true }: CyberCardProps) => {
