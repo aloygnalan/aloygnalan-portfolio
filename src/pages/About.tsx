@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import CyberCard from "@/components/common/CyberCard";
+import { Code2, Shield, Layers, Database } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,6 +23,44 @@ const About = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const skillCategories = [
+    {
+      title: "Tools & Platforms",
+      icon: Shield,
+      skills: [
+        { name: "Wazuh", level: 85 },
+        { name: "Splunk", level: 80 },
+        { name: "ELK Stack", level: 85 },
+        { name: "OSQuery", level: 75 },
+        { name: "n8n", level: 80 },
+        { name: "Wireshark", level: 85 },
+        { name: "Suricata", level: 80 },
+        { name: "Linux", level: 85 },
+        { name: "Git", level: 85 },
+      ],
+    },
+    {
+      title: "Security Operations",
+      icon: Code2,
+      skills: [
+        { name: "SIEM Alert Analysis", level: 85 },
+        { name: "Log Monitoring", level: 85 },
+        { name: "Incident Response", level: 85 },
+        { name: "Threat Intelligence", level: 80 },
+        { name: "SOC Automation", level: 80 },
+      ],
+    },
+    {
+      title: "Programming & Scripting",
+      icon: Layers,
+      skills: [
+        { name: "Python", level: 85 },
+        { name: "Bash", level: 80 },
+        { name: "HTML/CSS", level: 80 },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen pt-20 px-6 pb-12">
@@ -115,30 +154,37 @@ const About = () => {
             <div className="h-1 w-20 bg-accent rounded-full"></div>
           </div>
 
-          <CyberCard>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-mono font-bold text-accent mb-3">Tools & Platforms</h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  Wazuh, Splunk, ELK Stack, OSQuery, n8n, Wireshark, Suricata, Linux, Git
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-mono font-bold text-accent mb-3">Security Operations</h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  SIEM Alert Analysis, Log Monitoring, Incident Response, Threat Intelligence (VirusTotal), SOC Automation (n8n)
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-mono font-bold text-accent mb-3">Programming & Scripting</h3>
-                <p className="text-foreground/80 leading-relaxed">
-                  Python, Bash, HTML/CSS
-                </p>
-              </div>
-            </div>
-          </CyberCard>
+          <div className="grid md:grid-cols-2 gap-8">
+            {skillCategories.map((category, idx) => (
+              <CyberCard key={idx}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-accent/10 rounded-lg border border-accent/30">
+                    <category.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h2 className="text-xl font-mono font-bold text-foreground">
+                    {category.title}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIdx) => (
+                    <div key={skillIdx}>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-foreground font-medium">{skill.name}</span>
+                        <span className="text-accent font-mono text-sm">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-accent to-accent/70 transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.level}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CyberCard>
+            ))}
+          </div>
         </div>
       </div>
     </div>
