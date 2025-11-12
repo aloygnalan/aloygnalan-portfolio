@@ -27,6 +27,12 @@ const Resume = () => {
       period: "Jan – Mar 2025",
       location: "Remote",
     },
+    {
+      title: "Cybersecurity Intern",
+      company: "EDU TANTR",
+      period: "Jul – Sep 2025",
+      location: "Remote",
+    },
   ];
 
   const education = [
@@ -165,5 +171,3 @@ const Resume = () => {
     </div>
   );
 };
-
-export default Resume;
