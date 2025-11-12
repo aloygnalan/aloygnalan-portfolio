@@ -135,14 +135,6 @@ const About = () => {
               <span className="text-accent mt-1">▹</span>
               <span>Threat Hunting</span>
             </li>
-             <li className="flex items-start gap-2">
-              <span className="text-accent mt-1">▹</span>
-              <span>Digital Forensics</span>
-            </li>
-             <li className="flex items-start gap-2">
-              <span className="text-accent mt-1">▹</span>
-              <span>Malware Analysis</span>
-            </li>
           </ul>
         </CyberCard>
         
