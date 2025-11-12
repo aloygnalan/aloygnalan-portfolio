@@ -4,6 +4,13 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "Wazuh–n8n–VirusTotal Threat Automation",
+      description: "Developed a workflow that receives Wazuh alerts, extracts IOCs, uploads files directly to VirusTotal for scanning, and emails detailed analysis reports. Demonstrated SOAR-style automation for real-time threat classification.",
+      tags: ["Wazuh", "n8n", "VirusTotal", "SOAR", "Automation"],
+      github: "",
+      demo: "",
+    },
+    {
       title: "Data Security in Cloud using Blockchain and Biometrics",
       description: "A next-generation security solution combining biometric authentication with ChaCha20Poly1305 encryption, blockchain verification, and enterprise-level protection features.",
       tags: ["Python", "MongoDB", "ChaCha20Poly1305", "Blockchain", "WebAuth"],

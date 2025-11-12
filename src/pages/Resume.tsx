@@ -68,9 +68,12 @@ const Resume = () => {
             </h1>
             <div className="h-1 w-20 bg-accent rounded-full"></div>
           </div>
+          {/* Link to CV placed in public/ — filename contains an apostrophe and space,
+              so href is URL-encoded and download uses a friendly filename. */}
           <a
-            href="/aloy-gnalan.pdf"
-            download
+            href="/aloygnalan%27s%20CV.pdf"
+            download="Aloy_Gnalan_CV.pdf"
+            aria-label="Download Aloy Gnalan CV"
             className="px-6 py-3 bg-accent text-accent-foreground font-mono font-semibold rounded-lg transition-smooth hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] flex items-center gap-2 group cursor-pointer"
           >
             <Download className="w-4 h-4 group-hover:scale-110 transition-transform" />
